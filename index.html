@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            text-align: center;
+            background: linear-gradient(to right, #FFD2E2, #FFFCF5);
+            
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #container {
+            max-width: 600px;
+            margin: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #header-image {
+            max-width: 45%; 
+            height: auto; 
+            margin: 20px 0; 
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="header-image" src="https://upload.wikimedia.org/wikipedia/th/8/86/2nmrbd.JPG" alt="Header Image">
+        <h2>Fibonacci Calculator</h2>
+        <label for="fibInput">ลำดับเลขฟีโบนัชชี:</label>
+        <input type="number" id="fibInput" placeholder="Enter a number">
+        <button onclick="calculateFibonacci()">คำนวณ</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateFibonacci() {
+            var num = document.getElementById("fibInput").value;
+            var result = fib(num);
+            document.getElementById("result").innerHTML = `ลำดับเลขฟีโบนัชชี ${num} ค่าฟีโบนัชชี: ${result}`;
+        }
+
+        function fib(n) {
+            var numbers = [0, 1];
+            for (var i = 2; i <= n; i++) {
+                numbers.push(numbers[i - 1] + numbers[i - 2]);
+            }
+            return numbers[n - 1];
+        }
+    </script>
+</body>
+</html>
